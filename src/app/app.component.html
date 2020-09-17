@@ -1,0 +1,41 @@
+<!-- header -->
+
+<!--<div>-->
+<!--    <mat-toolbar color="primary">-->
+<!--        <mat-toolbar-row>-->
+<!--          <span>{{ title }}</span>-->
+<!--          <span [ngStyle]="{flex: '1 1 auto'}"></span>-->
+<!--          <span><a class="linkEffect" href="https://newsapi.org" target="_blank" rel="noopener noreferrer">News API</a></span>-->
+<!--        </mat-toolbar-row>-->
+<!--    </mat-toolbar>-->
+<!--  -->
+<!--</div>-->
+<mat-toolbar color="primary" class="example-toolbar">
+  <button mat-icon-button (click)="isExpanded = !isExpanded"><mat-icon>menu</mat-icon></button>
+  <h1 class="example-app-name">Lolo News</h1>
+</mat-toolbar>
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+    <mat-nav-list>
+      <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+        <span class="full-width" *ngIf="isExpanded || isShowing">Menu</span>
+        <mat-icon mat-list-icon>home</mat-icon>
+        <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+      </mat-list-item>
+      <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
+        <a mat-list-item routerLink="/home" routerLinkActive="active">News</a>
+        <a mat-list-item routerLink="/home" routerLinkActive="active">Covid-19</a>
+        <a mat-list-item routerLink="/football" routerLinkActive="active">Football News</a>
+
+      </div>
+    </mat-nav-list>
+    <mat-nav-list>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <div class="example-sidenav-content" [ngStyle]="{background: 'url(src/assets/images/interface/football.jpg)'}">
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-sidenav-container>
+

@@ -1,0 +1,105 @@
+/* You can add global styles to this file, and also import other style files */
+
+// font
+@import url('https://fonts.googleapis.com/css?family=Rubik:700&display=swap');
+* { font-family: 'Rubik', sans-serif; }
+
+// costum angular material
+@import '~@angular/material/_theming.scss';
+@include mat-core();
+$default-theme: mat-light-theme(mat-palette($mat-purple, A400), mat-palette($mat-light-blue, A400));
+@include angular-material-theme($default-theme);
+
+// base
+html, body { height: 100%; overflow-y: hidden ; }
+body { margin: 0; }
+a.linkEffect {
+    text-decoration: none;
+    padding: 2px;
+    box-shadow: rgba(0, 0, 0, 0.87) 0px -1.5px 0px inset;
+    color: rgba(0, 0, 0, 0.87);
+    transition-duration: .75s;
+    &:hover { box-shadow: rgba(0, 0, 0, 0.87) 0px -50px 0px inset; color: #ffffff }
+}
+
+// form
+form {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; left: 50%; transform: translateX(-50%);
+    width: 100%;
+    margin: 50px 0px;
+    button { margin-left: 20px!important; }
+}
+.mat-form-field {
+    width: 50%; min-width: 50px; max-width: 400px;
+}
+
+// infos block
+h2 {
+    text-align: center;
+    font-size: 30px;
+}
+div.infosContainer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    a {
+        display: block;
+        width: 40%;
+        max-width: 400px;
+        margin-bottom: 50px;
+        text-decoration: none;
+        .mat-card { background: #e8f5e9; z-index: 0; }
+    }
+}
+%imageBg {
+    background-size: cover; background-position: center center;
+}
+.mat-card > picture {
+    @extend %imageBg ;
+    display: block;
+    position: relative;
+    height: 250px; width: 100%; border-radius: 4px;
+    overflow: hidden;
+}
+.mat-card > svg {
+    position: absolute;
+    bottom: 10px;
+    width: 65%;
+    left: 50%; transform: translateX(-50%);
+    filter: invert(1);
+}
+.mat-card-title {
+    display: -webkit-box!important;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 70px;
+    border: none!important;
+}
+
+// mobile
+@media screen and (orientation:portrait) {
+    div.infosContainer > a {
+        width: 90%;
+    }
+}
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+body {
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+}
+
+.basic-container {
+  padding: 5px;
+}
+
+.version-info {
+  font-size: 8pt;
+  float: right;
+}
