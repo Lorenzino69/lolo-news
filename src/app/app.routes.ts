@@ -2,11 +2,13 @@ import {Routes} from '@angular/router';
 import {FootballComponent} from "./football/football.component";
 import {AppComponent} from "./app.component";
 import {ApiComponent} from "./api/api.component";
+import {Covid19Component} from "./covid19/covid19.component";
 
 export const appRoutes: Routes = [
   { path: '', component: ApiComponent},
   { path: 'home', component: ApiComponent},
   { path: 'football', component: FootballComponent},
+  { path: 'covid', component: Covid19Component},
   // { path: 'all-movies', component: AllMoviesComponent},
   // { path: 'all-tv-shows', component: AllTvShowsComponent},
   // { path: 'register', component: RegisterComponent},

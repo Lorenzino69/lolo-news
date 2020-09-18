@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ApiService} from "../api.service";
 import {FootballService} from "./football.service";
 
@@ -8,6 +8,9 @@ import {FootballService} from "./football.service";
   styleUrls: ['./football.component.scss']
 })
 export class FootballComponent implements OnInit {
+
+  @Input()
+  isExpanded
 
   $infos: any;
   $resultOfRequest: any;
@@ -46,6 +49,7 @@ export class FootballComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.isExpanded =false;
 
       this.footballservice.getTopHeadLines()
         .subscribe((data: any) => {

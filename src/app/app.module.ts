@@ -17,12 +17,14 @@ import {MatListModule} from "@angular/material/list";
 import { FootballComponent } from './football/football.component';
 import {RouterModule} from "@angular/router";
 import {appRoutes} from "./app.routes";
+import { Covid19Component } from './covid19/covid19.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ApiComponent,
-    FootballComponent
+    FootballComponent,
+    Covid19Component
   ],
   imports: [
     BrowserModule,
