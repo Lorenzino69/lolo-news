@@ -1,41 +1,61 @@
-<!-- header -->
 
-<!--<div>-->
-<!--    <mat-toolbar color="primary">-->
-<!--        <mat-toolbar-row>-->
-<!--          <span>{{ title }}</span>-->
-<!--          <span [ngStyle]="{flex: '1 1 auto'}"></span>-->
-<!--          <span><a class="linkEffect" href="https://newsapi.org" target="_blank" rel="noopener noreferrer">News API</a></span>-->
-<!--        </mat-toolbar-row>-->
-<!--    </mat-toolbar>-->
-<!--  -->
-<!--</div>-->
-<!--<mat-toolbar color="primary" class="example-toolbar">-->
-<!--  <button mat-icon-button (click)="isExpanded = !isExpanded"><mat-icon>menu</mat-icon></button>-->
-<!--  <h1 class="example-app-name">Lolo News</h1>-->
-<!--</mat-toolbar>-->
-<mat-sidenav-container class="example-container" autosize>
-  <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
-    <mat-nav-list>
-      <mat-list-item  class="parent">
-        <span class="full-width">Menu</span>
-        <mat-icon mat-list-icon>home</mat-icon>
-<!--        <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>-->
-      </mat-list-item>
-      <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
-        <a mat-list-item routerLink="/home" routerLinkActive="active" (click)="toggleSideBar()">News</a>
-        <a mat-list-item routerLink="/covid" routerLinkActive="active" (click)="toggleSideBar()">Covid-19</a>
-        <a mat-list-item routerLink="/football" routerLinkActive="active" (click)="toggleSideBar()">Football News</a>
+<!--<mat-sidenav-container class="example-container" autosize>-->
+<!--  <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">-->
+<!--    <mat-nav-list>-->
+<!--      <mat-list-item  class="parent">-->
+<!--        <span class="full-width">Menu</span>-->
+<!--        <mat-icon mat-list-icon>home</mat-icon>-->
+<!--&lt;!&ndash;        <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>&ndash;&gt;-->
+<!--      </mat-list-item>-->
+<!--      <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">-->
+<!--        <a mat-list-item routerLink="/home" routerLinkActive="active" (click)="toggleSideBar()">News</a>-->
+<!--        <a mat-list-item routerLink="/covid" routerLinkActive="active" (click)="toggleSideBar()">Covid-19</a>-->
+<!--        <a mat-list-item routerLink="/football" routerLinkActive="active" (click)="toggleSideBar()">Football News</a>-->
 
-      </div>
-    </mat-nav-list>
-    <mat-nav-list>
-    </mat-nav-list>
+<!--      </div>-->
+<!--    </mat-nav-list>-->
+<!--    <mat-nav-list>-->
+<!--    </mat-nav-list>-->
+<!--  </mat-sidenav>-->
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="sidenav.open()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Lolo News</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>share</mat-icon>
+  </button>
+</mat-toolbar>
+
+
+<mat-sidenav-container
+  class="example-container" (backdropClick)="close('backdrop')" >
+  <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
+        <mat-nav-list>
+          <mat-list-item  class="parent">
+            <span class="full-width">Menu</span>
+            <mat-icon mat-list-icon>home</mat-icon>
+    <!--        <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>-->
+          </mat-list-item>
+          <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
+            <a mat-list-item routerLink="/home" routerLinkActive="active" (click)="close('escape')">News</a>
+            <a mat-list-item routerLink="/covid" routerLinkActive="active" (click)="close('escape')">Covid-19</a>
+            <a mat-list-item routerLink="/football" routerLinkActive="active" (click)="close('escape')">Football News</a>
+
+          </div>
+        </mat-nav-list>
+        <mat-nav-list>
+        </mat-nav-list>
   </mat-sidenav>
+
 
   <div class="example-sidenav-content" [ngStyle]="{background: 'url(src/assets/images/interface/football.jpg)'}">
     <router-outlet></router-outlet>
   </div>
-
 </mat-sidenav-container>
+<!--</mat-sidenav-container>-->
 

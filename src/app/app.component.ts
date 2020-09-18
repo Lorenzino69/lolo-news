@@ -40,6 +40,14 @@ export class AppComponent {
   showSubmenu: boolean = true;
   isShowing = true;
 
+  reason = '';
+
+  close(reason: string) {
+    this.reason = reason;
+    this.sidenav.close();
+  }
+
+
   mouseenter() {
     if (!this.isExpanded) {
       this.isShowing = true;
