@@ -42,11 +42,12 @@ export class FootballComponent implements OnInit {
         // if there is more than one result, display 'results'
         const $word = (data.totalResults <= 1) ? `result` : `results`;
         // define resultOfRequest to display the number of results
-        this.$resultOfRequest = `${data.totalResults.toLocaleString()} ${$word}`;
+        this.$resultOfRequest = data.articles.length;
         this.$infos = data;
         console.log(data);
       });
   }
+  $inputResp: any;
 
   ngOnInit() {
     this.isExpanded =false;
@@ -56,7 +57,7 @@ export class FootballComponent implements OnInit {
           // if there is more than one result, display 'results'
           const $word = (data.totalResults <= 1) ? `result` : `results`;
           // define resultOfRequest to display the number of results
-          this.$resultOfRequest = `${data.totalResults.toLocaleString()} ${$word}`;
+          this.$resultOfRequest = data.articles.length;
           this.$infos = data;
           console.log(data);
         });

@@ -6,22 +6,18 @@ import {HttpClient} from '@angular/common/http';
 })
 export class FootballService {
 
+  API_KEY_NEW =`f82fcde0907d62d45faab633c6211d4f`;
+
+
   constructor(private $httpClient: HttpClient) { }
   getInfos(i: any) {
 
-    // PUT YOUR API KEY HERE
-    const $API_KEY = `861abaa2bef2405f9b0b30e09435e883`;
-
-    return this.$httpClient.get(`https://newsapi.org/v2/everything?q=${i}&sortBy=relevance&language=fr&apiKey=` + $API_KEY );
+    return this.$httpClient.get(`https://gnews.io/api/v4/search?q=${i}&languages=fr&token=` + this.API_KEY_NEW );
   }
 
   getTopHeadLines() {
 
-    // PUT YOUR API KEY HERE
-    // const NewsAPI = require('newsapi');
-    const $API_KEY = `861abaa2bef2405f9b0b30e09435e883`;
-
-    return this.$httpClient.get(`https://newsapi.org/v2/top-headlines?q=foot&apiKey=` + $API_KEY );
+    return this.$httpClient.get(`https://gnews.io/api/v4/top-headlines?country=fr&q=foot&token=` + this.API_KEY_NEW );
   }
 
 

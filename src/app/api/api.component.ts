@@ -20,16 +20,13 @@ export class ApiComponent implements OnInit {
         // if there is more than one result, display 'results'
         const $word = (data.totalResults <= 1) ? `result` : `results`;
         // define resultOfRequest to display the number of results
-        this.$resultOfRequest = `${data.totalResults.toLocaleString()} ${$word}`;
+        this.$resultOfRequest = data.articles.length;
         this.$infos = data;
         this.$url = data.articles.source;
-        for(this.i = 0; this.i < data.articles.length; this.i++ ){
-          this.$url = data.articles[this.i].source.name;
-          console.log(this.$url);
-        }
-        console.log(this.$url);
+
       });
   }
+  $inputResp: any;
 
   ngOnInit() {
     this.apiService.getTopHeadLines()
@@ -37,7 +34,7 @@ export class ApiComponent implements OnInit {
       // if there is more than one result, display 'results'
       const $word = (data.totalResults <= 1) ? `result` : `results`;
       // define resultOfRequest to display the number of results
-      this.$resultOfRequest = `${data.totalResults.toLocaleString()} ${$word}`;
+      this.$resultOfRequest = data.articles.length;
       this.$infos = data;
       console.log(data);
     });

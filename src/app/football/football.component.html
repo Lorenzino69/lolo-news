@@ -9,7 +9,7 @@
 
   <!-- Datas card -->
   <h2 *ngIf="$infos">{{ $resultOfRequest }}</h2>
-  <div class="infosContainer" *ngIf="$infos" [ngStyle]="{'background-image': 'url(' + $infos.articles.urlToImage + ')'}">
+  <div class="infosContainer" *ngIf="$infos" [ngStyle]="{'background-image': 'url(' + $infos.articles.images + ')'}">
     <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer" *ngFor="let item of $infos.articles">
       <mat-card>
         <mat-card-header>
@@ -25,7 +25,7 @@
                                       from="0 50 50" to="360 50 50" repeatCount="indefinite"></animateTransform>
                 </path>
             </svg>
-        <picture [ngStyle]="{'background-image': 'url(' + item.urlToImage + ')'}"></picture>
+        <picture [ngStyle]="{'background-image': 'url(' + item.image + ')'}"></picture>
       </mat-card>
     </a>
   </div>
